@@ -1,0 +1,10 @@
+<transactions id="5"> 
+ <order sym="switch" amount="-200" limit="140"/>
+ <query id="1" />
+ <query id="2" />
+ <query id="3" />
+ <query id="4" />
+ <query id="5" />
+ <query id="6" />
+ <query id="7" />
+</transactions>

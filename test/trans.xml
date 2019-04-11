@@ -1,0 +1,13 @@
+<transactions id="1"> 
+<<<<<<< HEAD
+ <order sym="SYM" amount="100" limit="100"/>
+ <order sym="abc" amount="10000" limit="1000"/>
+ <query id="10"/>
+ <cancel id="5"/>
+
+=======
+ <order sym="SWITCH" amount="3" limit="1"/>
+ <query id="1" />
+ <cancel id="1" />
+>>>>>>> a17820431d0b658ce76150599125c6667a229612
+</transactions>

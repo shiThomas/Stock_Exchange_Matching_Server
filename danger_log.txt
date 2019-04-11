@@ -1,0 +1,26 @@
+1. What if server receives an empty from client?
+
+In that case, our server will abort. We assume that client will only transmit valid
+create or transaction xml to server.
+
+2. What if server receives an invalid Account ID for one transaction?
+
+When our server confront this situation, it will regard the input as an invalid input,
+and will respond with an error message.
+
+3. What if server receives an invalid Transaction ID?
+
+The repsonse is same as the previous one, that our server will respond with an error 
+message.
+
+4. What if an user post an order to buy(at this time money is subtracted from the account), 
+   then the order is executed with a lower price?
+
+The price difference should be refunded to the account.
+
+5. What if number of users queuing up for accessing server exceeds the maximum
+   number of sockets for listening?
+
+Our server is not able to deal with this level of scalability, and it will refuse connection
+requests from clients.
+

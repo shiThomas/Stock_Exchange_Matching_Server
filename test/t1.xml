@@ -1,0 +1,8 @@
+<transactions id="1">
+ <order sym="switch" amount="-50" limit="10"/> 
+ <order sym="switch" amount="60" limit="10"/>
+ <order sym="switch" amount="20" limit="10"/>
+ <order sym="switch" amount="50" limit="10"/>
+ <cancel id="3" />
+ <query id="1" />
+</transactions>

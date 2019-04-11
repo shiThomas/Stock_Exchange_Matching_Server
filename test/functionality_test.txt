@@ -1,0 +1,55 @@
+create.xml:
+<create>
+ <account id="1" balance="500"/> 
+ <account id="2" balance="500"/>
+ <symbol sym = "switch">
+   <account id="2">50</account>
+ </symbol>
+</create>  
+
+t1.xml
+<transactions id="1">
+ <order sym="switch" amount="-50" limit="10"/> #Account 1 does not have enough "switch", should return error 
+ <order sym="switch" amount="60" limit="10"/> # Account 1 does not have enough money, return error
+ <order sym="switch" amount="20" limit="10"/> #Post the order, trans_id should be 1, now balance in account 1 is 500 - 20 * 10 = 300
+ <order sym="switch" amount="50" limit="10"/> #Account 1 does not have enough money, return error
+ <cancel id="3" /> #Trans_id 3 does not exist
+ <query id="1" /> #One open order: amount 20, limit 10
+</transactions>
+
+t2.xml
+<transactions id="2">
+  <order sym="switch" amount="-10" limit="11.0"/> #Post the order, trans id is 2, now account 2 has 40 "switch" left in account
+  <order sym="switch" amount="-40" limit="9.0"/> #Post the order, trans id is 3; now account 2 has no "switch" left in account; should executed this order with an amount of 20, price of 10; account 2 now has 500 + 20 * 10 = 700 balance
+  <query id="1" /> #Executed order: shares 20, price 10
+  <query id="2" /> #Open order: amount -10, limit 11.
+  <query id="3" />2.open order: amount -10, limit 9.   3.executed order: shares -20, price 10.
+</transactions>
+
+t3.xml
+<transactions id="1">
+  <order sym="switch" amount="20" limit="12.0"/> #Post the order, trans id is 4; now account 1 has 300 - 20 * 12 = 60 balance left; should first match with trans_id 3: shares 10, price 9; then match with trans_id 2: shares 10, price 11. So money returned to account 1 is 10 *(12 - 11) + 10 * (12 - 9) = 40, so account 1 noe has 60 + 40 = 100 balance; account 2 has 700 + 10 * 11 + 10 * 9 = 900 balance
+  <query id="1" /> #No change
+  <query id="2" /> #Executed: shares -10, price 11
+  <query id="3" /> #1.open: amount: -10, limit 9.  2.Executed: shares -10, price 9
+  <query id="4" /> #1.executed: shares 10, price 11.   2.Executed: shares 10, price 9 
+</transactions>
+
+t4.xml
+<transactions id="2">
+  <order sym="switch" amount="-20" limit="12.0"/> #Error: not enough items in account 
+  <cancnel id="3" /> #Error. No open order for trans_id 3
+  <order sym="switch" amount="-10" limit="12.0"/> #Post the order: trans id is 5.
+  <order sym="bitcoin" amount="-10" limit="12.0"/> #Error: symbol "bitcoin" does not exist
+  <query id="1" /> #...
+  <query id="2" /> #...
+  <query id="3" /> #...
+  <query id="4" /> #...
+  <query id="5" /> #... 
+</transactions>
+
+print balances here, we get:
+account 1: balance 100, account 2: balance 900
+
+
+

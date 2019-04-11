@@ -1,0 +1,15 @@
+<create>
+ <account id="1" balance="100000"/>
+ <!-- <account id="2" balance="200000"/> -->
+ <!-- <account id="3" balance="200000"/> -->
+ <!-- <account id="4" balance="200000"/> -->
+ <!-- <account id="5" balance="200000"/> -->
+ <!-- <account id="6" balance="200000"/> -->
+ <!-- <account id="7" balance="200000"/> -->
+ <!-- <symbol sym="switch"> -->
+ <!--   <\!-- <account id="2">500</account> -\-> -->
+ <!--   <\!-- <account id="4">500</account> -\-> -->
+ <!--   <\!-- <account id="5">500</account> -\-> -->
+ <!--   <\!-- <account id="7">500</account> -\-> -->
+ <!-- </symbol> -->
+</create>

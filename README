@@ -1,0 +1,9 @@
+In order to start the server:
+   	 ./ExchangeMatchingServer 12345
+
+To send xml objects to the server:
+   	./client hostname port_num filename(xml)
+
+Responses will be printed by client.
+
+Nothing will be printed on server side.
