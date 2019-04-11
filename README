@@ -1,3 +1,5 @@
+A Server written in C++ that takes XML inputs, and simulate real-world stock exchange behaviors
+
 In order to start the server:
    	 ./ExchangeMatchingServer 12345
 
